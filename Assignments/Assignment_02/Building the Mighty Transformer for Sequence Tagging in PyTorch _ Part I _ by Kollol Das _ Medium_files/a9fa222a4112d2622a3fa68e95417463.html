@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://medium.com/media/a9fa222a4112d2622a3fa68e95417463 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Medium</title><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body data-new-gr-c-s-loaded="14.1002.0"><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./818f9ba6ef3957f2896fdc08ebb130.download" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-33b98015caf26cfcbee6ce1a.css"><div id="gist88955470" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-sublayers-py" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip="">
+      <tbody><tr>
+        <td id="file-sublayers-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-sublayers-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">class</span> <span class="pl-v">MultiHeadAttention</span>(<span class="pl-s1">nn</span>.<span class="pl-v">Module</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-sublayers-py-LC2" class="blob-code blob-code-inner js-file-line">  ...</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-sublayers-py-LC3" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">def</span> <span class="pl-en">forward</span>(<span class="pl-s1">self</span>, <span class="pl-s1">queries</span>, <span class="pl-s1">keys</span>, <span class="pl-s1">values</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-sublayers-py-LC4" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-sublayers-py-LC5" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"># Do a linear for each component</span></td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-sublayers-py-LC6" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">queries</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-en">query_linear</span>(<span class="pl-s1">queries</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-sublayers-py-LC7" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">keys</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-en">key_linear</span>(<span class="pl-s1">keys</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-sublayers-py-LC8" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">values</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-en">value_linear</span>(<span class="pl-s1">values</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-sublayers-py-LC9" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-sublayers-py-LC10" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"># Split into multiple heads</span></td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-sublayers-py-LC11" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">queries</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-en">_split_heads</span>(<span class="pl-s1">queries</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-sublayers-py-LC12" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">keys</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-en">_split_heads</span>(<span class="pl-s1">keys</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-sublayers-py-LC13" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">values</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-en">_split_heads</span>(<span class="pl-s1">values</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-sublayers-py-LC14" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-sublayers-py-LC15" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"># Scale queries</span></td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-sublayers-py-LC16" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">queries</span> <span class="pl-c1">*=</span> <span class="pl-s1">self</span>.<span class="pl-s1">query_scale</span></td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-sublayers-py-LC17" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-sublayers-py-LC18" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"># Combine queries and keys</span></td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-sublayers-py-LC19" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">logits</span> <span class="pl-c1">=</span> <span class="pl-s1">torch</span>.<span class="pl-en">matmul</span>(<span class="pl-s1">queries</span>, <span class="pl-s1">keys</span>.<span class="pl-en">permute</span>(<span class="pl-c1">0</span>, <span class="pl-c1">1</span>, <span class="pl-c1">3</span>, <span class="pl-c1">2</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-sublayers-py-LC20" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-sublayers-py-LC21" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"># Add bias to mask future values</span></td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-sublayers-py-LC22" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> <span class="pl-s1">self</span>.<span class="pl-s1">bias_mask</span> <span class="pl-c1">is</span> <span class="pl-c1">not</span> <span class="pl-c1">None</span>:</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-sublayers-py-LC23" class="blob-code blob-code-inner js-file-line">            <span class="pl-s1">logits</span> <span class="pl-c1">+=</span> <span class="pl-v">Variable</span>(<span class="pl-s1">self</span>.<span class="pl-s1">bias_mask</span>[:, :, :<span class="pl-s1">logits</span>.<span class="pl-s1">shape</span>[<span class="pl-c1">-</span><span class="pl-c1">2</span>], :<span class="pl-s1">logits</span>.<span class="pl-s1">shape</span>[<span class="pl-c1">-</span><span class="pl-c1">1</span>]].<span class="pl-en">type_as</span>(<span class="pl-s1">logits</span>.<span class="pl-s1">data</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-sublayers-py-LC24" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-sublayers-py-LC25" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"># Convert to probabilites</span></td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-sublayers-py-LC26" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">weights</span> <span class="pl-c1">=</span> <span class="pl-s1">nn</span>.<span class="pl-s1">functional</span>.<span class="pl-en">softmax</span>(<span class="pl-s1">logits</span>, <span class="pl-s1">dim</span><span class="pl-c1">=</span><span class="pl-c1">-</span><span class="pl-c1">1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-sublayers-py-LC27" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-sublayers-py-LC28" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"># Dropout</span></td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-sublayers-py-LC29" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">weights</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-en">dropout</span>(<span class="pl-s1">weights</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-sublayers-py-LC30" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-sublayers-py-LC31" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"># Combine with values to get context</span></td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-sublayers-py-LC32" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">contexts</span> <span class="pl-c1">=</span> <span class="pl-s1">torch</span>.<span class="pl-en">matmul</span>(<span class="pl-s1">weights</span>, <span class="pl-s1">values</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-sublayers-py-LC33" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-sublayers-py-LC34" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"># Merge heads</span></td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-sublayers-py-LC35" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">contexts</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-en">_merge_heads</span>(<span class="pl-s1">contexts</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-sublayers-py-LC36" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-sublayers-py-LC37" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"># Linear to get output</span></td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-sublayers-py-LC38" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">outputs</span> <span class="pl-c1">=</span> <span class="pl-s1">self</span>.<span class="pl-en">output_linear</span>(<span class="pl-s1">contexts</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-sublayers-py-LC39" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-sublayers-py-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-sublayers-py-LC40" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-s1">outputs</span></td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/kolloldas/818f9ba6ef3957f2896fdc08ebb13054/raw/5d3471a566f4d10b6194b1c4d13371f7dee0ba56/sublayers.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/kolloldas/818f9ba6ef3957f2896fdc08ebb13054#file-sublayers-py">sublayers.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200; if (document) {document.domain = document.domain;}function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height);var elements = document.getElementsByClassName("gist-data"); for (var i = 0; i < elements.length; i++) {elements[i].style.overflow = "visible"}resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {try {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);} catch(error) {console.log('maybeResize error: ', error)}}maybeResize();</script></body></html>
