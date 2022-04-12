@@ -38,3 +38,32 @@ revaled at the moment. It may also be run on a similar drop in dataset with the 
 <br>
 <p>Challenge 2: Learning with Limited Data w/ External Data:</p>
 Consider the same exercise but now with the ability to use an external data or models not trained on CIFAR-10 from the pytorch model repository or to train your own model on external data (you may not train a model on CIFAR-10 dataset or any derivative using these images. You may consider for example various forms of finetuning, meta-learning, semi-supervised learning with an external dataset and other related ideas.
+<br>
+<h1> project Conclusion </h1>
+From this project, the team realized that learning from
+limited data is a very interesting but challenging experience.
+In challenge 1, our team was able to perform well with
+the top result submission on CodaLab, as well as developed
+and implemented 2 models which give quite similar perfor-
+mance, although there are still things to be improve further
+if time allows (such as making the SVM classifier in the
+third approach fully differentiable as in [30]).
+Learning with limited data without pre-trainning like
+in the challenge 1’s context showed that regardless of the
+model and approach, the achieved performance is still be-
+low 50% test accuracy, which proved than transfer learn-
+ing approaches in challenge 2 are the proper way to con-
+quer this kind of limited data challenge (excepted when
+the data in new domain has too much different character-
+istics compared to the source domain, where pre-trained
+approach would not help and the challenge 1’s context is
+un-avoidable).
+For challenge 2, the objective is to show how deep mod-
+els like VGG16, ResNet and EfficientNetB0 can be used on
+very small size data without large margin of overfitting and
+with great performance. All of the models are pre-trained
+on ImageNet. According to the experiments, most of the
+models had performed well, specially when apply data aug-
+mentation, dropout, and fine-tuning.
+Overall, the experiments proved that deep models can be used to generalize well very small datasets with proper
+modifications and limited resources.
